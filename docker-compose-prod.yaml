@@ -1,0 +1,10 @@
+version: "2.12"
+services:
+  frontend-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      args:
+        - REACT_APP_VARIABLE=value
+    ports:
+      - "8080:80"

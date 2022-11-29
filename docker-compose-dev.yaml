@@ -1,0 +1,20 @@
+version: "2.12"
+services:
+  frontend-service:      
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8080:3000"
+    volumes:
+      - type: bind
+        source: ./src
+        target: /app/src
+    environment:
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+      - REACT_APP_VARIABLE=value-dev
+      
+    #env_file:
+    #  - ./.env
+    # - 
